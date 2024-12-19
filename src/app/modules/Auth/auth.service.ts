@@ -48,10 +48,7 @@ const loginUser = async (payload: TLoginUser) => {
   };
 };
 
-const refreshToken = async () => {};
-
 export const AuthService = {
   loginUser,
   registerUser,
-  refreshToken,
 };
