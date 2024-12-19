@@ -25,7 +25,7 @@ const createBlog = catchAsync(async (req, res) => {
 const getAllBlogs = catchAsync(async (req, res) => {
   const result = await BlogServices.getAllBlogFromDB();
   sendResponse(res, {
-    statusCode: 200,
+    statusCode: httpStatus.OK,
     success: true,
     message: 'Blog reterived reterived successfuly!!!',
     data: result,
@@ -36,7 +36,7 @@ const getSingleBlog: RequestHandler = catchAsync(async (req, res) => {
   //   const id = req.params.id;
   const result = await BlogServices.getSingleBlogFromDB();
   sendResponse(res, {
-    statusCode: 200,
+    statusCode: httpStatus.OK,
     success: true,
     message: 'Blog reterived successfuly!!!',
     data: result,
@@ -44,27 +44,32 @@ const getSingleBlog: RequestHandler = catchAsync(async (req, res) => {
 });
 
 const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
-  //   const id = req.params.id;
-  const result = await BlogServices.deleteBlogFromDB();
+  const { id } = req.params;
+  await BlogServices.deleteBlogFromDB(id);
 
   sendResponse(res, {
-    statusCode: 200,
     success: true,
     message: 'Blog deleted successfuly!!!',
-    data: result,
+    statusCode: httpStatus.OK,
+    data: {},
   });
 });
 
 const updateBlog: RequestHandler = catchAsync(async (req, res) => {
-  //   const id = req.params.id;
+  const { id } = req.params;
 
-  const result = await BlogServices.updateBlogFromDB();
+  const result = await BlogServices.updateBlogFromDB(id, req.body);
 
   sendResponse(res, {
     statusCode: 200,
     success: true,
     message: 'Blog updated successfuly!!!',
-    data: result,
+    data: {
+      id: result?.id,
+      title: result?.title,
+      content: result?.content,
+      author: result?.author,
+    },
   });
 });
 

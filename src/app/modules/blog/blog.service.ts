@@ -2,14 +2,24 @@ import { IBlog } from './blog.interface';
 import { Blog } from './blog.model';
 
 const createBlogIntoDB = async (payload: IBlog, userId: string) => {
-  const blog = new Blog({ ...payload, author: userId });
-  await blog.save();
+  const blog = (await Blog.create({ ...payload, author: userId })).populate(
+    'author',
+  );
   return blog;
+};
+const updateBlogFromDB = async (id: string, payload: Partial<IBlog>) => {
+  const result = await Blog.findByIdAndUpdate(id, payload, {
+    new: true,
+    runValidators: true,
+  }).populate('author');
+  return result;
+};
+const deleteBlogFromDB = async (id: string) => {
+  const result = await Blog.findByIdAndDelete(id, { new: true });
+  return result;
 };
 const getAllBlogFromDB = async () => {};
 const getSingleBlogFromDB = async () => {};
-const updateBlogFromDB = async () => {};
-const deleteBlogFromDB = async () => {};
 
 export const BlogServices = {
   getAllBlogFromDB,
