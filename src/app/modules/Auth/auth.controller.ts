@@ -7,15 +7,19 @@ const registerUser = catchAsync(async (req, res) => {
   //   const { ...passwordData } = req.body;
   const result = await AuthService.registerUser(req.body);
   sendResponse(res, {
-    statusCode: httpStatus.OK,
+    statusCode: httpStatus.CREATED,
     success: true,
     message: 'User register succesfully!',
-    data: result,
+    data: {
+      _id: result?._id,
+      name: result?.name,
+      email: result?.email,
+    },
   });
 });
 
 const loginUser = catchAsync(async (req, res) => {
-  const result = await AuthService.loginUser();
+  const result = await AuthService.loginUser(req.body);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

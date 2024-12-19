@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
+import { model, Schema } from 'mongoose';
 import config from '../../config';
+import { IUser } from './user.interface';
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema<IUser>(
   {
     name: {
       type: String,
@@ -54,4 +55,4 @@ userSchema.post('save', function (doc, next) {
   next();
 });
 
-export const User = mongoose.model('User', userSchema);
+export const User = model<IUser>('User', userSchema);
