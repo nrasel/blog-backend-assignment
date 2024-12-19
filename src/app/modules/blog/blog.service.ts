@@ -1,3 +1,4 @@
+import QueryBuilder from '../../builder/QueryBuilder';
 import { IBlog } from './blog.interface';
 import { Blog } from './blog.model';
 
@@ -18,7 +19,19 @@ const deleteBlogFromDB = async (id: string) => {
   const result = await Blog.findByIdAndDelete(id, { new: true });
   return result;
 };
-const getAllBlogFromDB = async () => {};
+const getAllBlogFromDB = async (query: Record<string, unknown>) => {
+  const blogSearchableField = ['title', 'content'];
+  const blogQuery = new QueryBuilder(Blog.find().populate('author'), query)
+    .searches(blogSearchableField)
+    .filter()
+    .sort()
+    .paginate()
+    .fields();
+
+  const result = await blogQuery.modelQuery;
+
+  return result;
+};
 const getSingleBlogFromDB = async () => {};
 
 export const BlogServices = {
