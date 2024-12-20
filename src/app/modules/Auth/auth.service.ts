@@ -17,7 +17,7 @@ const loginUser = async (payload: TLoginUser) => {
   );
 
   if (!user) {
-    throw new AppError(httpStatus.NOT_FOUND, 'This user is not found!');
+    throw new AppError(httpStatus.UNAUTHORIZED, 'This user is not registered!');
   }
 
   if (user.isBlocked === true) {

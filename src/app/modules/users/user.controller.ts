@@ -8,7 +8,7 @@ const createUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Student is reterived successfuly',
+    message: 'User is reterived successfuly',
     data: result,
   });
 });
@@ -17,7 +17,7 @@ const getAllUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Student is reterived successfuly',
+    message: 'User is reterived successfuly',
     data: result,
   });
 });
@@ -28,7 +28,7 @@ const getSingleUser: RequestHandler = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Student is reterived successfuly',
+    message: 'User is reterived successfuly',
     data: result,
   });
 });
@@ -40,7 +40,7 @@ const deleteUser: RequestHandler = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Student deleted successfuly',
+    message: 'User deleted successfuly',
     data: result,
   });
 });
@@ -53,7 +53,7 @@ const updateUser: RequestHandler = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Student updated successfuly',
+    message: 'User updated successfuly',
     data: result,
   });
 });

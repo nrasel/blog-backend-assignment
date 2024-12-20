@@ -25,13 +25,12 @@ const createBlog = catchAsync(async (req, res) => {
 const getAllBlogs = catchAsync(async (req, res) => {
   const result = await BlogServices.getAllBlogFromDB(req.query);
 
-   const mappedData = result.map((blog) => ({
-     _id: blog._id,
-     title: blog.title,
-     content:blog.title,
-     author:blog.author
-   }));
-
+  const mappedData = result.map((blog) => ({
+    _id: blog._id,
+    title: blog.title,
+    content: blog.title,
+    author: blog.author,
+  }));
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -49,7 +48,6 @@ const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
     success: true,
     message: 'Blog deleted successfuly!!!',
     statusCode: httpStatus.OK,
-    data: {},
   });
 });
 

@@ -4,12 +4,13 @@ import sendResponse from '../../utility/sendResponse';
 import { AdminService } from './admin.service';
 
 const blockUser = catchAsync(async (req, res) => {
-  await AdminService.blockUser(req.params.userId);
+  const result = await AdminService.blockUser(req.params.userId);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User blocked succesfully!',
+    data: { isBlocked: result?.isBlocked },
   });
 });
 
