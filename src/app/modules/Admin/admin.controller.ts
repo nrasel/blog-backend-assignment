@@ -4,28 +4,25 @@ import sendResponse from '../../utility/sendResponse';
 import { AdminService } from './admin.service';
 
 const blockUser = catchAsync(async (req, res) => {
-  const result = await AdminService.blockUser();
+  await AdminService.blockUser(req.params.userId);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User blocked succesfully!',
-    data: result,
   });
 });
 
-const deleteBlock = catchAsync(async (req, res) => {
-  //   const { ...passwordData } = req.body;
-  const result = await AdminService.deleteBlog();
+const deleteBlog = catchAsync(async (req, res) => {
+  await AdminService.deleteBlog(req.params.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Blog deleted succesfully!',
-    data: result,
   });
 });
 
-export const authController = {
+export const adminController = {
   blockUser,
-  deleteBlock,
+  deleteBlog,
 };

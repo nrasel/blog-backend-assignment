@@ -25,22 +25,19 @@ const createBlog = catchAsync(async (req, res) => {
 const getAllBlogs = catchAsync(async (req, res) => {
   const result = await BlogServices.getAllBlogFromDB(req.query);
 
+   const mappedData = result.map((blog) => ({
+     _id: blog._id,
+     title: blog.title,
+     content:blog.title,
+     author:blog.author
+   }));
+
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Blog reterived reterived successfuly!!!',
-    data: result,
-  });
-});
-
-const getSingleBlog: RequestHandler = catchAsync(async (req, res) => {
-  //   const id = req.params.id;
-  const result = await BlogServices.getSingleBlogFromDB();
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Blog reterived successfuly!!!',
-    data: result,
+    data: mappedData,
   });
 });
 
@@ -77,7 +74,6 @@ const updateBlog: RequestHandler = catchAsync(async (req, res) => {
 export const blogController = {
   createBlog,
   getAllBlogs,
-  getSingleBlog,
   deleteBlog,
   updateBlog,
 };

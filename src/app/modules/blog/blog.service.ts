@@ -21,7 +21,10 @@ const deleteBlogFromDB = async (id: string) => {
 };
 const getAllBlogFromDB = async (query: Record<string, unknown>) => {
   const blogSearchableField = ['title', 'content'];
-  const blogQuery = new QueryBuilder(Blog.find().populate('author'), query)
+  const blogQuery = new QueryBuilder(
+    Blog.find().populate("author"),
+    query,
+  )
     .searches(blogSearchableField)
     .filter()
     .sort()
@@ -32,11 +35,9 @@ const getAllBlogFromDB = async (query: Record<string, unknown>) => {
 
   return result;
 };
-const getSingleBlogFromDB = async () => {};
 
 export const BlogServices = {
   getAllBlogFromDB,
-  getSingleBlogFromDB,
   deleteBlogFromDB,
   updateBlogFromDB,
   createBlogIntoDB,
