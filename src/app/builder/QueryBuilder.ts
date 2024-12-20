@@ -24,11 +24,18 @@ class QueryBuilder<T> {
   }
   filter() {
     const queryObj = { ...this.query };
-    console.log('qObj', queryObj);
+    // console.log('qObj', queryObj);
+
     const excludingTerm = ['search', 'page', 'limit', 'sortOrder', 'sortBy'];
     excludingTerm.forEach((key) => delete queryObj[key]);
-    console.log('qObjde', queryObj);
-    this.modelQuery = this.modelQuery.find({ queryObj } as FilterQuery<T>);
+
+    if (queryObj.filter) {
+      const { filter } = queryObj;
+      queryObj.author = filter;
+      delete queryObj?.filter;
+    }
+
+    this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
     return this;
   }
   sort() {
