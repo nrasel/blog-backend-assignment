@@ -1,6 +1,6 @@
-Blog Platform Backend
+## Blog Platform Backend
 
-Project Name
+* Project Name
 
 Blog Platform Backend 📝
 
@@ -18,50 +18,50 @@ Features
 
 Admin: 👩‍💼
 
- -Can delete any blog.
+ - Can delete any blog.
 
- -Can block any user.
+ - Can block any user.
 
- -Cannot update any blog.
+ - Cannot update any blog.
 
 User: 👤
 
- -Can register and log in.
+ - Can register and log in.
 
- -Can create, update, and delete their own blogs.
+ - Can create, update, and delete their own blogs.
 
- -Cannot perform admin-level actions.
+ - Cannot perform admin-level actions.
 
 2. Authentication and Authorization 🔒
 
 -Authentication:
 
-  **Users must log in to create, update, or delete blogs.
+  * Users must log in to create, update, or delete blogs.
 
 -Authorization:
 
-Admin and User roles are secured and differentiated.
+  * Admin and User roles are secured and differentiated.
 
 3. Blog API 📚
 
-- Public API for viewing blogs with the following functionalities:
+* Public API for viewing blogs with the following functionalities:
 
-  **Search: 🔍 Search blogs by title or content.
+- Search: 🔍 Search blogs by title or content.
 
-  **Sort: ⬆️⬇️ Sort blogs by fields such as creation date or title.
+- Sort: ⬆️⬇️ Sort blogs by fields such as creation date or title.
 
-  **Filter: 🎯 Filter blogs by author ID.
+- Filter: 🎯 Filter blogs by author ID.
 
 4. Error Handling ❗
 
-   -Error handling for validation errors, authentication issues, and server errors.
+ - Error handling for validation errors, authentication issues, and server errors.
 
-Technologies Used
+5. Technologies Used
 
-  -TypeScript ⚡
+ - TypeScript ⚡
 
- -Node.js 🌐
+ - Node.js 🌐
 
- -Express.js 🖥️
+ - Express.js 🖥️
 
- -MongoDB with Mongoose 📂
+ - MongoDB with Mongoose 📂
