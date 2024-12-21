@@ -10,7 +10,7 @@ Live URL
 
 Overview 📝
 
-    - The Blog Backend project is for a blogging platform. It supports user registration, authentication, blog creation, and role-based access control. Designed with scalability and security in mind, it allows to management of blogs and users.
+- The Blog Backend project is for a blogging platform. It supports user registration, authentication, blog creation, and role-based access control. Designed with scalability and security in mind, it allows to management of blogs and users.
 
 Features
 
