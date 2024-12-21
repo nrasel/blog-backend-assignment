@@ -8,5 +8,5 @@ export const createToken = (
   const token = jwt.sign(jwtPayload, secret, {
     expiresIn,
   });
-  return `Bearer ${token}`;
+  return token;
 };

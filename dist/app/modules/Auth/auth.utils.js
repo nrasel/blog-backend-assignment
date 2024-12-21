@@ -9,6 +9,6 @@ const createToken = (jwtPayload, secret, expiresIn) => {
     const token = jsonwebtoken_1.default.sign(jwtPayload, secret, {
         expiresIn,
     });
-    return `Bearer ${token}`;
+    return token;
 };
 exports.createToken = createToken;

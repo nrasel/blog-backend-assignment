@@ -42,7 +42,7 @@ const getAllBlogs = catchAsync(async (req, res) => {
 
 const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
   const { id } = req.params;
-  await BlogServices.deleteBlogFromDB(id);
+  await BlogServices.deleteBlogFromDB(id, req.user.userId);
 
   sendResponse(res, {
     success: true,
@@ -54,7 +54,7 @@ const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
 const updateBlog: RequestHandler = catchAsync(async (req, res) => {
   const { id } = req.params;
 
-  const result = await BlogServices.updateBlogFromDB(id, req.body);
+  const result = await BlogServices.updateBlogFromDB(id, req.user.userId, req.body);
 
   sendResponse(res, {
     statusCode: 200,

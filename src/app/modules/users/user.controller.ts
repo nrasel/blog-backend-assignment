@@ -3,6 +3,8 @@ import catchAsync from '../../utility/catchAsync';
 import sendResponse from '../../utility/sendResponse';
 import { UserServices } from './user.service';
 
+
+// just for setup all user actions has been happended in auth
 const createUser = catchAsync(async (req, res) => {
   const result = await UserServices.createUserIntoDB();
   sendResponse(res, {
