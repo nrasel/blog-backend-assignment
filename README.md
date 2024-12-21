@@ -2,7 +2,7 @@
 
 # Project Name
 
-Blog Platform Backend 📝
+Blog  Backend 📝
 
 Live URL
 
