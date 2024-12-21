@@ -12,7 +12,7 @@ Live URL
 Overview 📝
 - The Blog Backend project is for a blogging platform. It supports user registration, authentication, blog creation, and role-based access control. Designed with scalability and security in mind, it allows to management of blogs and users.
 
-Features
+* Features
 
 1. User Roles
 
@@ -34,13 +34,13 @@ User: 👤
 
 2. Authentication and Authorization 🔒
 
--Authentication:
+* Authentication:
 
-  * Users must log in to create, update, or delete blogs.
+  - Users must log in to create, update, or delete blogs.
 
--Authorization:
+* Authorization:
 
-  * Admin and User roles are secured and differentiated.
+  - Admin and User roles are secured and differentiated.
 
 3. Blog API 📚
 
