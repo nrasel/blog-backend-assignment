@@ -58,7 +58,7 @@ Admin and User roles are secured and differentiated.
 
 Technologies Used
 
- -TypeScript ⚡
+  -TypeScript ⚡
 
  -Node.js 🌐
 
